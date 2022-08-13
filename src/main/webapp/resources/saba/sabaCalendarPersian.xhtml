@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"      
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+    <composite:attribute name="value" type="java.lang.Object"/>
+    <composite:attribute name="mindate" type="java.lang.Object"/>
+    <composite:attribute name="maxdate" type="java.lang.Object"/>
+    <composite:attribute name="locale" type="java.lang.Object"/>
+    <composite:attribute name="timeZone" type="java.lang.Object"/>
+    <composite:attribute name="pagedate" type="java.lang.Object"/>
+    <composite:attribute name="rendered" type="java.lang.Boolean" default="true"/>
+    <composite:attribute name="navigator" type="java.lang.Boolean" default="false"/>
+    <composite:attribute name="showButtonPanel" type="java.lang.Boolean" default="false"/>
+    <composite:attribute name="readonlyInput" type="java.lang.Boolean" default="false"/>
+    <composite:attribute name="showOtherMonths" type="java.lang.Boolean" default="false"/>
+    <composite:attribute name="binding" type="javax.faces.component.UIComponent"/>
+    <composite:attribute name="converter" type="java.faces.convert.Converter"/>
+    <composite:attribute name="immediate" type="java.lang.Boolean" default="false"/>
+    <composite:attribute name="required" type="java.lang.Boolean" default="false"/>
+    <composite:attribute name="showWeek" type="java.lang.Boolean" default="false"/>
+    <composite:attribute name="selectOtherMonths" type="java.lang.Boolean" default="false"/>
+    <composite:attribute name="disabledWeekends" type="java.lang.Boolean" default="false"/>
+    <composite:attribute name="timeOnly" type="java.lang.Boolean" default="false"/>
+    <composite:attribute name="validator" type="javax.faces.validator.Validator"/>
+    <composite:attribute name="valueChangeListener" type="javax.faces.event.ValueChangeListener"/>
+    <composite:attribute name="disabled" type="boolean" default="false"/>
+    <composite:attribute name="readonly" type="boolean" default="false"/>
+    <composite:attribute name="pages" type="java.lang.Integer" default="1"/>
+    <composite:attribute name="stepHour" type="java.lang.Integer" default="1"/>
+    <composite:attribute name="stepMinute" type="java.lang.Integer" default="1"/>
+    <composite:attribute name="stepSecond" type="java.lang.Integer" default="1"/>
+    <composite:attribute name="minHour" type="java.lang.Integer" default="0"/>
+    <composite:attribute name="maxHour" type="java.lang.Integer" default="23"/>
+    <composite:attribute name="minMinute" type="java.lang.Integer" default="0"/>
+    <composite:attribute name="maxMinute" type="java.lang.Integer" default="59"/>
+    <composite:attribute name="minSecond" type="java.lang.Integer" default="0"/>
+    <composite:attribute name="maxSecond" type="java.lang.Integer" default="59"/>
+    <composite:attribute name="id"/>
+    <composite:attribute name="size" type="int"/>
+    <composite:attribute name="requiredMessage"/>
+    <composite:attribute name="monthNavigator" type="java.lang.Boolean" default="true"/>
+    <composite:attribute name="yearNavigator" type="java.lang.Boolean" default="true"/>
+    <composite:attribute name="converterMessage"/>
+    <composite:attribute name="validatorMessage"/>
+    <composite:attribute name="accesskey"/>
+    <composite:attribute name="alt"/>
+    <composite:attribute name="autocomplete"/>
+    <composite:attribute name="dir"/>
+    <composite:attribute name="label"/>
+    <composite:attribute name="lang"/>
+    <composite:attribute name="onblur"/>
+    <composite:attribute name="onchange"/>
+    <composite:attribute name="onclick"/>
+    <composite:attribute name="ondblclick"/>
+    <composite:attribute name="onfocus"/>
+    <composite:attribute name="onkeydown"/>
+    <composite:attribute name="onkeypress"/>
+    <composite:attribute name="onkeyup"/>
+    <composite:attribute name="onmousedown"/>
+    <composite:attribute name="onmousemove"/>
+    <composite:attribute name="onmouseout"/>
+    <composite:attribute name="onmouseover"/>
+    <composite:attribute name="onmouseup"/>
+    <composite:attribute name="onselect"/>
+    <composite:attribute name="style"/>
+    <composite:attribute name="styleClass"/>
+    <composite:attribute name="tabindex"/>
+    <composite:attribute name="title"/>
+    <composite:attribute name="widgetVar"/>
+    <composite:attribute name="mode" default="popup"/>
+    <composite:attribute name="pattern"/>
+    <composite:attribute name="effect"/>
+    <composite:attribute name="effectDuration" default="normal"/>
+    <composite:attribute name="showOn" default="focus"/>
+    <composite:attribute name="yearRange"/>
+    <composite:attribute name="beforeShowDay"/>
+</composite:interface>
+
+<composite:implementation>
+
+    <p:datePicker autocomplete="off">
+        <f:converter converterId="com.saba.SabaDateFormatter"/>
+
+        <f:attribute name="monthNavigator" value="#{cc.attrs.monthNavigator}"/>
+        <f:attribute name="yearNavigator" value="#{cc.attrs.yearNavigator}"/>
+        <f:attribute name="requiredMessage" value="#{cc.attrs.requiredMessage}"/>
+        <f:attribute name="converterMessage" value="#{cc.attrs.converterMessage}"/>
+        <f:attribute name="validatorMessage" value="#{cc.attrs.validatorMessage}"/>
+        <f:attribute name="accesskey" value="#{cc.attrs.accesskey}"/>
+        <f:attribute name="alt" value="#{cc.attrs.alt}"/>
+        <f:attribute name="autocomplete" value="#{cc.attrs.autocomplete}"/>
+        <f:attribute name="dir" value="#{cc.attrs.dir}"/>
+        <f:attribute name="label" value="#{cc.attrs.label}"/>
+        <f:attribute name="lang" value="#{cc.attrs.lang}"/>
+        <f:attribute name="onblur" value="#{cc.attrs.onblur}"/>
+        <f:attribute name="onchange" value="#{cc.attrs.onchange}"/>
+        <f:attribute name="onclick" value="#{cc.attrs.onclick}"/>
+        <f:attribute name="ondblclick" value="#{cc.attrs.ondblclick}"/>
+        <f:attribute name="onfocus" value="#{cc.attrs.onfocus}"/>
+        <f:attribute name="onkeydown" value="#{cc.attrs.onkeydown}"/>
+        <f:attribute name="onkeypress" value="#{cc.attrs.onkeypress}"/>
+        <f:attribute name="onkeyup" value="#{cc.attrs.onkeyup}"/>
+        <f:attribute name="onmousedown" value="#{cc.attrs.onmousedown}"/>
+        <f:attribute name="onmousemove" value="#{cc.attrs.onmousemove}"/>
+        <f:attribute name="onmouseout" value="#{cc.attrs.onmouseout}"/>
+        <f:attribute name="onmouseover" value="#{cc.attrs.onmouseover}"/>
+        <f:attribute name="onmouseup" value="#{cc.attrs.onmouseup}"/>
+        <f:attribute name="onselect" value="#{cc.attrs.onselect}"/>
+        <f:attribute name="style" value="#{cc.attrs.style}"/>
+        <f:attribute name="styleClass" value="#{cc.attrs.styleClass}"/>
+        <f:attribute name="tabindex" value="#{cc.attrs.tabindex}"/>
+        <f:attribute name="title" value="#{cc.attrs.title}"/>
+        <f:attribute name="widgetVar" value="#{cc.attrs.widgetVar}"/>
+        <f:attribute name="mode" value="#{cc.attrs.mode}"/>
+        <f:attribute name="pattern" value="#{cc.attrs.pattern}"/>
+        <f:attribute name="effect" value="#{cc.attrs.effect}"/>
+        <f:attribute name="effectDuration" value="#{cc.attrs.effectDuration}"/>
+        <f:attribute name="showOn" value="#{cc.attrs.showOn}"/>
+        <f:attribute name="yearRange" value="#{cc.attrs.yearRange}"/>
+        <f:attribute name="beforeShowDay" value="#{cc.attrs.beforeShowDay}"/>
+        <f:attribute name="value" value="#{cc.attrs.value}"/>
+        <f:attribute name="mindate" value="#{cc.attrs.mindate}"/>
+        <f:attribute name="maxdate" value="#{cc.attrs.maxdate}"/>
+        <f:attribute name="locale" value="#{cc.attrs.locale}"/>
+        <f:attribute name="timeZone" value="#{cc.attrs.timeZone}"/>
+        <f:attribute name="pagedate" value="#{cc.attrs.pagedate}"/>
+        <f:attribute name="rendered" value="#{cc.attrs.rendered}"/>
+        <f:attribute name="navigator" value="#{cc.attrs.navigator}"/>
+        <f:attribute name="showButtonPanel" value="#{cc.attrs.showButtonPanel}"/>
+        <f:attribute name="readonlyInput" value="#{cc.attrs.readonlyInput}"/>
+        <f:attribute name="showOtherMonths" value="#{cc.attrs.showOtherMonths}"/>
+        <f:attribute name="converter" value="#{cc.attrs.converter}"/>
+        <f:attribute name="immediate" value="#{cc.attrs.immediate}"/>
+        <f:attribute name="required" value="#{cc.attrs.required}"/>
+        <f:attribute name="showWeek" value="#{cc.attrs.showWeek}"/>
+        <f:attribute name="selectOtherMonths" value="#{cc.attrs.selectOtherMonths}"/>
+        <f:attribute name="disabledWeekends" value="#{cc.attrs.disabledWeekends}"/>
+        <f:attribute name="timeOnly" value="#{cc.attrs.timeOnly}"/>
+        <f:attribute name="validator" value="#{cc.attrs.validator}"/>
+        <f:attribute name="valueChangeListener" value="#{cc.attrs.valueChangeListener}"/>
+        <f:attribute name="disabled" value="#{cc.attrs.disabled}"/>
+        <f:attribute name="readonly" value="#{cc.attrs.readonly}"/>
+        <f:attribute name="pages" value="#{cc.attrs.pages}"/>
+        <f:attribute name="stepHour" value="#{cc.attrs.stepHour}"/>
+        <f:attribute name="stepMinute" value="#{cc.attrs.stepMinute}"/>
+        <f:attribute name="stepSecond" value="#{cc.attrs.stepSecond}"/>
+        <f:attribute name="minHour" value="#{cc.attrs.minHour}"/>
+        <f:attribute name="maxHour" value="#{cc.attrs.maxHour}"/>
+        <f:attribute name="minMinute" value="#{cc.attrs.minMinute}"/>
+        <f:attribute name="maxMinute" value="#{cc.attrs.maxMinute}"/>
+        <f:attribute name="minSecond" value="#{cc.attrs.minSecond}"/>
+        <f:attribute name="maxSecond" value="#{cc.attrs.maxSecond}"/>
+
+        <composite:insertChildren></composite:insertChildren>
+    </p:datePicker>
+
+</composite:implementation>
+
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:saba="http://java.sun.com/jsf/composite/saba"
+      xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:outputLabel value="Hello, world"/>
+    <h:head>
+        <h:outputScript library="js" name="jquery.ui.datepicker.js"/>
+        <h:outputScript library="js" name="jquery.ui.datepicker-cc.all.min.js"/>
+        <h:outputScript library="js" name="jquery.ui.datepicker-fa.js"/>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <p:panelGrid>
+                <p:row>
+                    <p:column>
+                        <saba:sabaCalendar value="#{testBean.date}"/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column>
+                        <p:commandButton value="Test" actionListener="#{testBean.doTest}"/>
+                    </p:column>
+                </p:row>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</f:view>
+</html>
